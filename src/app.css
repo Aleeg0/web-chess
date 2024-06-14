@@ -11,13 +11,17 @@ body{
 }
 
 .board{
-    width: calc(64px*8);
-    height: calc(64px*8);
+    width: calc(70px*8);
+    height: calc(70px*8);
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     box-shadow: 0 0 16px white;
+}
+
+.board img{
+    width: 48px;
 }
 .app{
     width: 100vw;
@@ -29,8 +33,8 @@ body{
 }
 
 .cell{
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
