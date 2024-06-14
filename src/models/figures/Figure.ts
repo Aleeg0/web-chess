@@ -3,12 +3,12 @@ import {Colors} from "../Colors";
 import aLogo from "../../assets/black-bishop.png"
 
 export enum FigureName{
-    PAWN,
-    ROOK,
-    KNIGHT,
-    BISHOP,
-    QUEEN,
-    KING
+    PAWN = "pawn",
+    ROOK = "rook",
+    KNIGHT = "knight",
+    BISHOP = "bishop",
+    QUEEN = "queen",
+    KING = "king"
 }
 
 export class Figure {
