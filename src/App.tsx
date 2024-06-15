@@ -43,9 +43,13 @@ function App() {
                     swapPlayer={swapPlayer}
                 />
                 <div className="lostComponents">
-                    <LostFiguresComponent title={"Черные фигуры"} figures={board.lostBlackFigures}
+                    <LostFiguresComponent
+                        title={"Черные фигуры"}
+                        figures={board.lostBlackFigures}
                     />
-                    <LostFiguresComponent title={"Белые фигуры"} figures={board.lostWhiteFigures}
+                    <LostFiguresComponent
+                        title={"Белые фигуры"}
+                        figures={board.lostWhiteFigures}
                     />
                 </div>
             </div>

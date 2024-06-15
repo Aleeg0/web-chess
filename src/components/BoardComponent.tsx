@@ -3,7 +3,6 @@ import {Board} from "../models/Board";
 import CellComponent from "./CellComponent";
 import {Cell} from "../models/Cell";
 import {Player} from "../models/Player";
-import {Colors} from "../models/Colors";
 
 interface BoardProps{
     board: Board;
