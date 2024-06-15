@@ -2,19 +2,24 @@ import React, {useEffect, useState} from 'react';
 import BoardComponent from "./components/BoardComponent";
 import './app.css'
 import {Board} from "./models/Board";
+import {Player} from "./models/Player";
+import {Colors} from "./models/Colors";
 
 
 function App() {
     const [board, setBoard] = useState(new Board());
+    const [player, setPlayer] = useState(new Player());
 
     useEffect(()=>{
+        console.log("App start");
         Restart();
     },[])
 
     function Restart() {
         const newBoard = new Board();
-        newBoard.initCells();
         newBoard.initFigures();
+        console.log("Restart");
+
         setBoard(newBoard);
     }
     return(
