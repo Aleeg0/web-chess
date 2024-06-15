@@ -62,14 +62,14 @@ export class Board {
 
     private initQueens(){
         const yPosition = this.playerColor === Colors.WHITE ? 3 : 4;
-        this.cells[0][yPosition].figure = new Queen(0,yPosition,Colors.BLACK);
-        this.cells[7][yPosition].figure = new Queen(7,yPosition,Colors.WHITE);
+        this.cells[0][yPosition].figure = new Queen(0,yPosition,this.enemyColor);
+        this.cells[7][yPosition].figure = new Queen(7,yPosition,this.playerColor);
     }
 
     private initKings(){
         const yPosition = this.playerColor === Colors.WHITE ? 4 : 3;
-        this.cells[0][yPosition].figure = new King(0,yPosition,Colors.BLACK);
-        this.cells[7][yPosition].figure = new King(7,yPosition,Colors.WHITE);
+        this.cells[0][yPosition].figure = new King(0,yPosition,this.enemyColor);
+        this.cells[7][yPosition].figure = new King(7,yPosition,this.playerColor);
     }
 
     public initFigures(){

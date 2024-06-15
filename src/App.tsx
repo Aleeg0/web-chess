@@ -30,6 +30,9 @@ function App() {
 
     return(
         <>
+            <header>
+                <h1>ONLINE CHESS</h1>
+            </header>
             <div className="app">
                 <BoardComponent
                     board={board}
