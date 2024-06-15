@@ -8,7 +8,9 @@ import {Colors} from "./models/Colors";
 
 function App() {
     const [board, setBoard] = useState(new Board());
-    const [player, setPlayer] = useState(new Player());
+    const [whitePlayer, setWhitePlayer] = useState(new Player());
+    const [blackPlayer, setBlackPlayer] = useState(new Player(Colors.BLACK));
+    const [currentPlayer, setCurrentPlayer] = useState<Player|null>(null);
 
     useEffect(()=>{
         console.log("App start");
@@ -18,14 +20,23 @@ function App() {
     function Restart() {
         const newBoard = new Board();
         newBoard.initFigures();
-        console.log("Restart");
-
         setBoard(newBoard);
+        setCurrentPlayer(whitePlayer);
     }
+
+    const swapPlayer = () => {
+        setCurrentPlayer(currentPlayer?.color === Colors.WHITE ? blackPlayer : whitePlayer);
+    }
+
     return(
         <>
             <div className="app">
-                <BoardComponent board={board} setBoard={setBoard}/>
+                <BoardComponent
+                    board={board}
+                    setBoard={setBoard}
+                    currentPlayer={currentPlayer}
+                    swapPlayer={swapPlayer}
+                />
             </div>
         </>
     );
