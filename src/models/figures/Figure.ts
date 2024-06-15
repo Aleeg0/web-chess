@@ -12,19 +12,23 @@ export enum FigureName{
 }
 
 export class Figure {
-    cell: Cell;
     color: Colors;
     logo: typeof aLogo | null;
-    name: FigureName | null;
+    protected _name: FigureName | null;
     id: number;
+    protected x: number;
+    protected y: number;
 
+    get name(): FigureName | null {
+        return this._name;
+    }
 
-    constructor(cell: Cell, color: Colors) {
-        this.cell = cell;
+    constructor(x:number,y:number,color: Colors) {
+        this.x = x;
+        this.y = y;
         this.color = color;
-        this.cell.figure = this;
         this.logo = null;
-        this.name = null;
+        this._name = null;
         this.id = Math.random();
     }
 
@@ -32,12 +36,20 @@ export class Figure {
         if (this.color === target.figure?.color){
             return false;
         }
-        if (target.figure?.name === FigureName.KING)
+        if (target.figure?._name === FigureName.KING)
             return false;
         return true;
     }
 
     move(target:Cell){
-        //target.figure = this;
+        this.x = target.x
+        this.y = target.y;
+    }
+
+    protected isEnemy(target:Figure|null):boolean{
+        if (target){
+            return this.color !== target.color;
+        }
+        return false;
     }
 }

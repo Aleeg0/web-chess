@@ -6,10 +6,10 @@ import WHITE_LOGO from "../../assets/white-knight.png";
 
 export class Knight extends Figure {
 
-    constructor(cell: Cell, color: Colors) {
-        super(cell, color);
+    constructor(x:number,y:number, color: Colors) {
+        super(x,y,color);
         this.logo = color ===  Colors.BLACK ? BLACK_LOGO : WHITE_LOGO;
-        this.name = FigureName.KNIGHT;
+        this._name = FigureName.KNIGHT;
     }
 
 
@@ -17,8 +17,8 @@ export class Knight extends Figure {
         if (!super.canMove(target)){
             return false;
         }
-        const dx = Math.abs(target.x - this.cell.x);
-        const dy = Math.abs(target.y - this.cell.y);
+        const dx = Math.abs(target.x - this.x);
+        const dy = Math.abs(target.y - this.y);
         if ((dx === 2 && dy === 1) || (dx === 1 && dy === 2))
             return true;
         return false;
