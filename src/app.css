@@ -43,8 +43,15 @@ header h1{
     width: 100vw;
     min-height: 90vh;
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    gap: 50px;
+}
+.lostComponents{
+    box-shadow: 0 0 30px white;
+    border-radius: 15px;
+    background-color: #494949;
 }
 
 .cell{

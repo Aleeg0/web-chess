@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import BoardComponent from "./components/BoardComponent";
+
 import './app.css'
 import {Board} from "./models/Board";
 import {Player} from "./models/Player";
 import {Colors} from "./models/Colors";
+import LostFiguresComponent from "./components/LostFiguresComponent";
 
 
 function App() {
@@ -40,6 +42,12 @@ function App() {
                     currentPlayer={currentPlayer}
                     swapPlayer={swapPlayer}
                 />
+                <div className="lostComponents">
+                    <LostFiguresComponent title={"Черные фигуры"} figures={board.lostBlackFigures}
+                    />
+                    <LostFiguresComponent title={"Белые фигуры"} figures={board.lostWhiteFigures}
+                    />
+                </div>
             </div>
         </>
     );

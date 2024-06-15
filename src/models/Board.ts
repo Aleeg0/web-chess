@@ -6,13 +6,25 @@ import {Queen} from "./figures/Queen";
 import {Rook} from "./figures/Rook";
 import {Knight} from "./figures/Knight";
 import {Bishop} from "./figures/Bishop";
-import {FigureName} from "./figures/Figure";
+import {Figure, FigureName} from "./figures/Figure";
 
 export class Board {
+    private readonly COUNT_OF_CELL = 8;
+
     cells: Cell[][] = [];
     private playerColor: Colors;
     private enemyColor: Colors;
-    private readonly COUNT_OF_CELL = 8;
+    private _lostBlackFigures: Figure[] = [];
+    private _lostWhiteFigures: Figure[] = [];
+
+
+    get lostBlackFigures(): Figure[] {
+        return this._lostBlackFigures;
+    }
+
+    get lostWhiteFigures(): Figure[] {
+        return this._lostWhiteFigures;
+    }
 
     constructor(playerColor:Colors=Colors.WHITE) {
         this.playerColor = playerColor;
@@ -167,6 +179,19 @@ export class Board {
     getCopy():Board {
         const newBoard = new Board();
         newBoard.cells = this.cells;
+        newBoard._lostBlackFigures = this._lostBlackFigures;
+        newBoard._lostWhiteFigures = this._lostWhiteFigures;
+        newBoard.playerColor = this.playerColor;
+        newBoard.enemyColor = this.enemyColor
         return newBoard;
+    }
+
+    addLostFigure(figure:Figure|null){
+        if (!figure)
+            return;
+        if (figure.color === Colors.WHITE)
+            this._lostWhiteFigures.push(figure);
+        else
+            this._lostBlackFigures.push(figure);
     }
 }
